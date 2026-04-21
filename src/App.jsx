@@ -1424,6 +1424,10 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    document.title = pathname === '/md-to-pdf' ? 'Convert Markdown to PDF' : 'Weekly Report Generator'
+  }, [pathname])
+
+  useEffect(() => {
     const onPopState = () => setPathname(getInitialPath())
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
