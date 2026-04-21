@@ -29,14 +29,14 @@ const QUICK_TEMPLATES = [
 const DEFAULT_TAGS = ['Backend', 'Frontend', 'Testing', 'DevOps', 'Design', 'Meeting', 'Dokumentasi']
 
 const THEMES = [
-  { key: 'blue', label: 'Biru', color: '#1f56f0' },
+  { key: 'blue', label: 'Biru', color: '#57B5E0' },
   { key: 'green', label: 'Hijau', color: '#09a56d' },
   { key: 'purple', label: 'Ungu', color: '#7c3aed' },
   { key: 'slate', label: 'Abu-abu', color: '#42526d' },
   { key: 'red', label: 'Merah', color: '#e11d48' },
   { key: 'custom', label: 'Kustom', color: '#5668ff' },
 ]
-const CUSTOM_SWATCHES = ['#1f56f0', '#09a56d', '#7c3aed', '#42526d', '#e11d48', '#ff8a00', '#00a3a3', '#121a2b']
+const CUSTOM_SWATCHES = ['#57B5E0', '#09a56d', '#7c3aed', '#42526d', '#e11d48', '#ff8a00', '#00a3a3', '#121a2b']
 
 const DRAFT_KEY = 'weekly-report-generator-draft'
 

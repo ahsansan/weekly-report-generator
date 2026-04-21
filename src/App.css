@@ -632,9 +632,18 @@ textarea:focus {
   }
 
   .field-grid,
-  .actions,
-  .theme-grid {
+  .actions {
     grid-template-columns: 1fr;
+  }
+
+  .theme-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .theme-dot {
+    min-width: 72px;
   }
 
   .task-head {
