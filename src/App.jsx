@@ -612,7 +612,7 @@ function WeeklyReportTool() {
     pdf.setTextColor(themeRgb.r, themeRgb.g, themeRgb.b)
     pdf.setFont('helvetica', 'bold')
     pdf.setFontSize(12.5)
-    pdf.text('RINGKASAN PEKERJAAN', marginX, y)
+    pdf.text('DAFTAR PEKERJAAN', marginX, y)
     y += 16
 
     if (printableItems.length === 0) {
@@ -628,9 +628,10 @@ function WeeklyReportTool() {
       const primaryTag = item.tags.length > 0 ? item.tags[0] : ''
       const attachments = item.attachments.filter((attachment) => attachment?.src)
       const itemInnerX = marginX + 56
-      const itemInnerWidth = contentWidth - 68
-      const descLines = pdf.splitTextToSize(description, itemInnerWidth)
-      const imageWidth = itemInnerWidth
+      const imageWidth = contentWidth - 84
+      const textWidth = imageWidth - 34
+      const titleLines = pdf.splitTextToSize(title, textWidth)
+      const descLines = pdf.splitTextToSize(description, textWidth)
       const imageBlocks = attachments
         .map((attachment, attachmentIndex) => {
           try {
@@ -647,8 +648,8 @@ function WeeklyReportTool() {
         .filter(Boolean)
       const imagesHeight =
         imageBlocks.length > 0 ? imageBlocks.reduce((total, block) => total + block.renderedHeight + 24 + 8, 0) : 0
-      const titleBlockHeight = primaryTag ? 62 : 46
-      const boxHeight = Math.max(132, titleBlockHeight + descLines.length * 14 + imagesHeight + 20)
+      const titleBlockHeight = (primaryTag ? 50 : 30) + titleLines.length * 15
+      const boxHeight = Math.max(132, titleBlockHeight + descLines.length * 14 + imagesHeight + 30)
 
       ensurePage(boxHeight + 10)
       pdf.setDrawColor(215, 226, 241)
@@ -678,9 +679,9 @@ function WeeklyReportTool() {
       pdf.setTextColor(25, 42, 72)
       pdf.setFont('helvetica', 'bold')
       pdf.setFontSize(13)
-      pdf.text(title, itemInnerX, textY)
+      pdf.text(titleLines, itemInnerX, textY)
 
-      const descY = textY + 22
+      const descY = textY + titleLines.length * 15 + 8
       pdf.setTextColor(34, 48, 74)
       pdf.setFont('helvetica', 'normal')
       pdf.setFontSize(10)
@@ -990,7 +991,7 @@ function WeeklyReportTool() {
               <CheckCheck className="icon-md" />
             </div>
             <div>
-              <h2>Ringkasan Pekerjaan</h2>
+              <h2>Daftar Pekerjaan</h2>
               <p className="sub">Tambahkan bukti gambar di setiap item</p>
             </div>
           </header>
