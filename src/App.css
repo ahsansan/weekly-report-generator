@@ -25,27 +25,12 @@ body {
   border-bottom: 1px solid #d8e2ef;
 }
 
-.tools-nav-mobile-head {
-  display: none;
-}
-
 .tools-nav-title {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #2f4768;
-}
-
-.mobile-nav-toggle {
-  border: 1px solid #c8d9ea;
-  background: #f8fbff;
-  color: #3f5778;
-  border-radius: 10px;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  color: #4f6388;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .tools-nav {
@@ -55,25 +40,42 @@ body {
   padding: 12px 0;
 }
 
-.tools-nav-list {
-  display: flex;
-  gap: 10px;
+.tools-nav-select-wrap {
+  display: grid;
+  gap: 8px;
 }
 
-.tools-nav-link {
-  color: #4f6388;
-  text-decoration: none;
+.tools-nav-select {
+  width: 100%;
+  appearance: none;
   border: 1px solid #ced8e8;
-  border-radius: 999px;
-  padding: 8px 14px;
+  border-radius: 12px;
+  padding: 10px 40px 10px 14px;
   font-weight: 600;
-  background: #f8fbff;
+  color: #2b466d;
+  background:
+    linear-gradient(45deg, transparent 50%, #4f6388 50%) calc(100% - 18px) calc(50% - 3px) / 6px 6px no-repeat,
+    linear-gradient(135deg, #4f6388 50%, transparent 50%) calc(100% - 12px) calc(50% - 3px) / 6px 6px no-repeat,
+    #f8fbff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.tools-nav-link.active {
+.tools-nav-select:focus {
+  outline: none;
   border-color: var(--brand-theme);
+  box-shadow: 0 0 0 3px rgba(87, 181, 224, 0.2);
+}
+
+.tools-nav-select option {
+  background: #f8fbff;
+  color: #2b466d;
+}
+
+.tools-nav-select option:checked {
   background: #e9f0ff;
   color: #1f6c94;
+  font-weight: 700;
 }
 
 .page {
@@ -984,43 +986,131 @@ textarea:focus {
   opacity: 0;
 }
 
+.m4a-page {
+  width: min(700px, 94vw);
+}
+
+.m4a-card {
+  padding: 20px;
+}
+
+.m4a-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.m4a-upload-box {
+  margin: 0;
+}
+
+.m4a-actions-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.m4a-unlocked-btn {
+  border-color: #6fddb0;
+  color: #0b7f53;
+  background: #e9fff4;
+}
+
+.m4a-meta {
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.m4a-meta-title {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5f7090;
+}
+
+.m4a-meta p {
+  margin: 0;
+  color: #2a3d5e;
+}
+
+.m4a-file-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #4f6388;
+}
+
+.m4a-file-list li {
+  margin-bottom: 4px;
+}
+
+.m4a-status {
+  margin: 14px 0 0;
+  color: #38537a;
+}
+
+.m4a-result {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.m4a-download-all {
+  justify-self: start;
+}
+
+.m4a-player {
+  width: 100%;
+}
+
+.m4a-result-item {
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.m4a-download-link {
+  text-decoration: none;
+}
+
+.m4a-unlock-modal {
+  inset: auto;
+  width: min(460px, 92vw);
+  margin: 12vh auto 0;
+  position: relative;
+  max-height: none;
+  grid-template-rows: auto 1fr;
+}
+
+.m4a-unlock-form {
+  padding: 16px 18px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.m4a-unlock-error {
+  margin: 0;
+  color: #d81d4e;
+  font-size: 0.88rem;
+}
+
+.m4a-unlock-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 @media (max-width: 840px) {
   .tools-nav-wrap {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .tools-nav-mobile-head {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 2px;
-  }
-
   .tools-nav {
     width: 100%;
-    padding: 6px 0 10px;
-  }
-
-  .tools-nav-list {
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    background: #f7fbff;
-    border: 1px solid #d6e7f1;
-    border-radius: 12px;
-    padding: 10px;
-  }
-
-  .tools-nav-list.open {
-    display: flex;
-  }
-
-  .tools-nav-link {
-    white-space: nowrap;
-    width: 100%;
-    text-align: center;
+    padding: 8px 0 10px;
   }
 
   .page {
@@ -1107,5 +1197,9 @@ textarea:focus {
 
   .md-panel-body {
     padding: 12px;
+  }
+
+  .m4a-card {
+    padding: 14px;
   }
 }
