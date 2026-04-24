@@ -1148,8 +1148,6 @@ function WeeklyReportTool() {
           <button type="button" className="copy-btn icon-btn" onClick={copySummary}>
             <ClipboardList className="icon-sm" /> Salin Ringkasan Teks
           </button>
-
-          <p className="footer-note">Weekly Report Generator - Data tersimpan lokal di browser Anda</p>
         </section>
       </main>
 

@@ -3,6 +3,10 @@ import './App.css'
 import WeeklyReportTool from './pages/WeeklyReportTool'
 import MarkdownToPdfTool from './pages/MarkdownToPdfTool'
 import M4aToMp3Tool from './pages/M4aToMp3Tool'
+import PdfMergeTool from './pages/PdfMergeTool'
+import PdfSignatureTool from './pages/PdfSignatureTool'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import { TOOL_ROUTES } from './lib/toolRoutes'
 
 const getInitialPath = () => {
@@ -19,7 +23,11 @@ function App() {
         ? 'Convert Markdown to PDF'
         : pathname === '/m4a-to-mp3'
           ? 'Convert M4A to MP3'
-          : 'Weekly Report Generator'
+          : pathname === '/pdf-merge'
+            ? 'PDF Merger'
+            : pathname === '/pdf-sign'
+              ? 'PDF Signature'
+              : 'Weekly Report Generator'
     document.title = pageTitle
   }, [pathname])
 
@@ -36,37 +44,25 @@ function App() {
   }
 
   return (
-    <>
-      <header className="tools-nav-wrap">
-        <nav className="tools-nav" aria-label="Tools navigation">
-          <div className="tools-nav-select-wrap">
-            <label htmlFor="tools-nav-select" className="tools-nav-title">
-              Tools
-            </label>
-            <select
-              id="tools-nav-select"
-              className="tools-nav-select"
-              value={pathname}
-              onChange={(event) => navigate(event.target.value)}
-            >
-              {TOOL_ROUTES.map((tool) => (
-                <option key={tool.path} value={tool.path}>
-                  {tool.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        </nav>
-      </header>
+    <div className="app-wrapper">
+      <Header pathname={pathname} onNavigate={navigate} />
 
-      {pathname === '/md-to-pdf' ? (
-        <MarkdownToPdfTool />
-      ) : pathname === '/m4a-to-mp3' ? (
-        <M4aToMp3Tool />
-      ) : (
-        <WeeklyReportTool />
-      )}
-    </>
+      <div className="app-content">
+        {pathname === '/md-to-pdf' ? (
+          <MarkdownToPdfTool />
+        ) : pathname === '/m4a-to-mp3' ? (
+          <M4aToMp3Tool />
+        ) : pathname === '/pdf-merge' ? (
+          <PdfMergeTool />
+        ) : pathname === '/pdf-sign' ? (
+          <PdfSignatureTool />
+        ) : (
+          <WeeklyReportTool />
+        )}
+      </div>
+
+      <Footer />
+    </div>
   )
 }
 
