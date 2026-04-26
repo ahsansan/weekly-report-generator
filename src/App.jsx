@@ -7,6 +7,8 @@ import PdfMergeTool from './pages/PdfMergeTool'
 import PdfSignatureTool from './pages/PdfSignatureTool'
 import HtmlEditorTool from './pages/HtmlEditorTool'
 import TextDiffTool from './pages/TextDiffTool'
+import CsvToXlsxTool from './pages/CsvToXlsxTool'
+import XlsxToCsvTool from './pages/XlsxToCsvTool'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { TOOL_ROUTES } from './lib/toolRoutes'
@@ -19,11 +21,13 @@ const getInitialPath = () => {
 const PAGE_TITLES = {
   '/': 'Weekly Report Generator - Kejepangan Tools',
   '/md-to-pdf': 'Convert Markdown to PDF - Kejepangan Tools',
-  '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/pdf-merge': 'PDF Merger - Kejepangan Tools',
   '/pdf-sign': 'PDF Signature - Kejepangan Tools',
+  '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
+  '/csv-to-xlsx': 'CSV to XLSX - Kejepangan Tools',
+  '/xlsx-to-csv': 'XLSX to CSV - Kejepangan Tools',
 }
 
 function App() {
@@ -62,6 +66,10 @@ function App() {
           <HtmlEditorTool />
         ) : pathname === '/text-diff' ? (
           <TextDiffTool />
+        ) : pathname === '/csv-to-xlsx' ? (
+          <CsvToXlsxTool />
+        ) : pathname === '/xlsx-to-csv' ? (
+          <XlsxToCsvTool />
         ) : (
           <WeeklyReportTool />
         )}
