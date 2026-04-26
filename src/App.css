@@ -1450,6 +1450,191 @@ textarea:focus {
   box-shadow: none;
 }
 
+/* JSON Formatter & Validator */
+
+.json-tool-page {
+  width: min(1300px, 94vw);
+}
+
+.json-tool-card {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.json-tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.json-tool-status {
+  margin: 0;
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  background: #f8fbff;
+  color: #4f6388;
+  padding: 10px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.json-tool-status.success {
+  border-color: #99e5b8;
+  background: #f1fff7;
+  color: #167046;
+}
+
+.json-tool-status.error {
+  border-color: #f5b5c0;
+  background: #fff6f8;
+  color: #b23a4e;
+}
+
+.json-tool-tabs-mobile {
+  display: none;
+}
+
+.json-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.json-tool-pane {
+  border: 1px solid #d8e1ef;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  min-height: 420px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.json-tool-pane h2 {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #e4ebf6;
+  color: #4f6388;
+}
+
+.json-tool-textarea {
+  border: none;
+  border-radius: 0;
+  padding: 14px;
+  font-family: 'JetBrains Mono', 'Consolas', 'Segoe UI Emoji', 'Apple Color Emoji', monospace;
+  line-height: 1.55;
+  resize: none;
+  min-height: 360px;
+}
+
+.json-tool-textarea:focus {
+  box-shadow: none;
+}
+
+.json-tool-monaco {
+  min-height: 360px;
+}
+
+.json-tool-tree-pane {
+  grid-column: 1 / -1;
+  min-height: 360px;
+}
+
+.json-tree-wrap {
+  padding: 12px;
+  min-height: 300px;
+  max-height: 420px;
+  overflow: auto;
+  background: #f8fbff;
+}
+
+.json-tree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.json-tree-item {
+  margin: 0;
+}
+
+.json-tree-toggle {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #2e4f78;
+  width: 100%;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px calc(8px + (var(--tree-depth, 0) * 14px));
+  cursor: pointer;
+}
+
+.json-tree-toggle:hover {
+  background: #eef6ff;
+  border-color: #d2e2f8;
+}
+
+.json-tree-key {
+  font-weight: 700;
+  color: #36537a;
+}
+
+.json-tree-caret {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  background: #e1ecfb;
+  color: #31568e;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.json-tree-toggle small {
+  color: #7e93b1;
+  font-size: 0.76rem;
+}
+
+.json-tree-item > .json-tree-list {
+  margin-top: 2px;
+}
+
+.json-tree-leaf {
+  margin-left: 6px;
+  color: #2e6f52;
+  background: #effaf4;
+  border: 1px solid #d3efdf;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.json-tree-item > .json-tree-key {
+  margin-left: calc(8px + (var(--tree-depth, 0) * 14px));
+}
+
+.json-tree-item > .json-tree-key + .json-tree-leaf {
+  display: inline-block;
+}
+
+.json-tree-empty,
+.json-tree-invalid {
+  margin: 0;
+  padding: 8px 10px;
+  color: #8699b5;
+  font-size: 0.83rem;
+}
+
 /* ── PDF Merge Tool ─────────────────────────────────── */
 
 .pdf-merge-page {
@@ -1797,6 +1982,34 @@ textarea:focus {
 
   .text-diff-monaco,
   .text-diff-textarea {
+    min-height: 340px;
+  }
+
+  .json-tool-card {
+    padding: 10px;
+  }
+
+  .json-tool-tabs-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .json-tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .json-tool-pane {
+    min-height: 420px;
+    display: none;
+  }
+
+  .json-tool-pane.active {
+    display: grid;
+  }
+
+  .json-tool-textarea,
+  .json-tool-monaco,
+  .json-tool-tree-pane {
     min-height: 340px;
   }
 
@@ -2332,4 +2545,106 @@ textarea:focus {
 .pdf-sign-placement-remove:hover {
   color: #dc2626;
   background: #fee2e2;
+}
+
+/* PDF Split & Extract */
+
+.pdf-split-page {
+  width: min(1300px, 94vw);
+}
+
+.pdf-split-card {
+  padding: 20px;
+}
+
+.pdf-split-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.pdf-split-upload-box {
+  margin: 0;
+}
+
+.pdf-split-file-panel {
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.pdf-split-file-title {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5f7090;
+}
+
+.pdf-split-file-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-split-file-row strong {
+  color: #2a3d5e;
+  font-size: 0.92rem;
+}
+
+.pdf-split-file-row p {
+  margin: 4px 0 0;
+  color: #8098b5;
+  font-size: 0.82rem;
+}
+
+.pdf-split-empty {
+  margin: 0;
+  color: #8b99b3;
+  font-size: 0.88rem;
+}
+
+.pdf-split-hint {
+  margin: -4px 0 0;
+  color: #6f7f9c;
+  font-size: 0.84rem;
+}
+
+.pdf-split-hint code {
+  background: #edf4ff;
+  border: 1px solid #d7e4f7;
+  color: #2a4e84;
+  border-radius: 8px;
+  padding: 2px 6px;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+.pdf-split-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pdf-split-result {
+  margin-top: 14px;
+  display: flex;
+}
+
+.pdf-split-download-link {
+  text-decoration: none;
+}
+
+@media (max-width: 840px) {
+  .pdf-split-card {
+    padding: 14px;
+  }
+
+  .pdf-split-file-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pdf-split-actions {
+    grid-template-columns: 1fr;
+  }
 }
