@@ -325,16 +325,17 @@ function PdfSignatureTool() {
                 Buat Tanda Tangan
               </div>
 
-              <div className="pdf-sign-color-row">
+              <div className="pdf-sign-limited">
+                <div className="pdf-sign-color-row">
                 <span className="pdf-sign-color-label">Warna:</span>
                 {PEN_COLORS.map((c) => (
                   <button key={c} type="button"
                     className={`pdf-sign-color-dot${penColor === c ? ' active' : ''}`}
                     style={{ background: c }} onClick={() => setPenColor(c)} />
                 ))}
-              </div>
+                </div>
 
-              <div className="pdf-sign-tabs">
+                <div className="pdf-sign-tabs">
                 {[
                   { id: 'draw', icon: <Pen className="icon-xs" />, label: 'Gambar' },
                   { id: 'type', icon: <Type className="icon-xs" />, label: 'Ketik' },
@@ -346,9 +347,9 @@ function PdfSignatureTool() {
                     {tab.icon} {tab.label}
                   </button>
                 ))}
-              </div>
+                </div>
 
-              {sigMode === 'draw' && (
+                {sigMode === 'draw' && (
                 <div className="pdf-sign-draw-wrap">
                   <canvas ref={drawCanvasRef} width={560} height={180} className="pdf-sign-draw-canvas"
                     onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
@@ -363,9 +364,9 @@ function PdfSignatureTool() {
                     </button>
                   </div>
                 </div>
-              )}
+                )}
 
-              {sigMode === 'type' && (
+                {sigMode === 'type' && (
                 <div className="pdf-sign-type-wrap">
                   <input type="text" className="pdf-sign-type-input" placeholder="Masukkan nama Anda..."
                     value={typedName} onChange={(e) => setTypedName(e.target.value)}
@@ -377,17 +378,17 @@ function PdfSignatureTool() {
                     <Check className="icon-xs" /> Gunakan Tanda Tangan
                   </button>
                 </div>
-              )}
+                )}
 
-              {sigMode === 'upload' && (
+                {sigMode === 'upload' && (
                 <label className="upload-box pdf-sign-upload-sig-box">
                   <input type="file" accept="image/*" onChange={onUploadSig} />
                   <ImageIcon className="icon-xs" />
                   Upload gambar tanda tangan (PNG transparan lebih baik)
                 </label>
-              )}
+                )}
 
-              {hasSig && (
+                {hasSig && (
                 <div className="pdf-sign-sig-preview-wrap">
                   <span className="pdf-sign-sig-preview-label">✓ Tanda tangan siap:</span>
                   <div className="pdf-sign-sig-preview">
@@ -398,7 +399,8 @@ function PdfSignatureTool() {
                     </button>
                   </div>
                 </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* ── Step 3: Place per page ─────────────────────────────────────── */}
@@ -410,8 +412,9 @@ function PdfSignatureTool() {
                   <span className="pdf-sign-step-hint">— navigasi, drag &amp; resize, klik "Tambah"</span>
                 </div>
 
-                {/* Page navigation */}
-                <div className="pdf-sign-page-nav">
+                <div className="pdf-sign-limited">
+                  {/* Page navigation */}
+                  <div className="pdf-sign-page-nav">
                   <button type="button" className="outline icon-btn"
                     disabled={currentPage <= 1} onClick={() => setCurrentPage((p) => p - 1)}>
                     <ChevronLeft className="icon-xs" />
@@ -429,10 +432,10 @@ function PdfSignatureTool() {
                     <PlusCircle className="icon-xs" />
                     {currentPagePlaced ? `Perbarui Hal. ${currentPage}` : `Tambah ke Hal. ${currentPage}`}
                   </button>
-                </div>
+                  </div>
 
-                {/* Preview + draggable signature */}
-                <div className="pdf-sign-preview-wrap" ref={previewRef}>
+                  {/* Preview + draggable signature */}
+                  <div className="pdf-sign-preview-wrap" ref={previewRef}>
                   {pageDataUrl && (
                     <img src={pageDataUrl} alt={`Halaman ${currentPage}`}
                       className="pdf-sign-page-img" draggable={false} />
@@ -444,10 +447,10 @@ function PdfSignatureTool() {
                     <img src={sigDataUrl} alt="Signature" className="pdf-sign-overlay-img" draggable={false} />
                     <div className="pdf-sign-resize-handle" onMouseDown={onResizePointerDown} onTouchStart={onResizePointerDown} />
                   </div>
-                </div>
+                  </div>
 
-                {/* Placements list */}
-                {placements.length > 0 && (
+                  {/* Placements list */}
+                  {placements.length > 0 && (
                   <div className="pdf-sign-placements">
                     <p className="pdf-sign-placements-title">
                       Halaman yang akan ditandatangani ({placements.length}):
@@ -467,7 +470,8 @@ function PdfSignatureTool() {
                       ))}
                     </div>
                   </div>
-                )}
+                  )}
+                </div>
               </div>
             )}
 

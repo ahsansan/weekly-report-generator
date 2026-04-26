@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { jsPDF } from 'jspdf'
-import { ClipboardList, Eye, FileText, Trash2, Upload } from 'lucide-react'
+import { ClipboardList, FileText, Trash2, Upload } from 'lucide-react'
+import Editor from '@monaco-editor/react'
 import '../App.css'
 
 const QUICK_TEMPLATES = ['Daily Standup', 'Code Review', 'Testing & QA', 'Dokumentasi', 'Rapat Tim', 'Bug Fixing']
@@ -469,7 +470,7 @@ function MarkdownToPdfTool() {
   const [markdownText, setMarkdownText] = useState(draft?.markdownText ?? '# Contoh Dokumen\n\nTulis markdown di sini.')
   const [fileName, setFileName] = useState(draft?.fileName ?? 'markdown-document')
   const [isExporting, setIsExporting] = useState(false)
-  const [activeTab, setActiveTab] = useState('editor')
+  const [mobileTab, setMobileTab] = useState('editor')
   const blocks = useMemo(() => parseMarkdownBlocks(markdownText), [markdownText])
   const exportRef = useRef(null)
 
@@ -655,41 +656,71 @@ function MarkdownToPdfTool() {
       </section>
 
       <section className="card md-tab-card">
-        <div className="md-tabs">
+        <div className="md-tabs md-mobile-tabs">
           <button
             type="button"
-            className={`md-tab ${activeTab === 'editor' ? 'active' : ''}`}
-            onClick={() => setActiveTab('editor')}
+            className={`md-tab ${mobileTab === 'editor' ? 'active' : ''}`}
+            onClick={() => setMobileTab('editor')}
           >
             Markdown Input
           </button>
           <button
             type="button"
-            className={`md-tab ${activeTab === 'preview' ? 'active' : ''}`}
-            onClick={() => setActiveTab('preview')}
+            className={`md-tab ${mobileTab === 'preview' ? 'active' : ''}`}
+            onClick={() => setMobileTab('preview')}
           >
-            <Eye className="icon-sm" /> Live Preview
+            Live Preview
           </button>
         </div>
 
-        {activeTab === 'editor' ? (
-          <article className="md-panel">
-            <div className="md-panel-body">
-              <textarea
-                className="md-editor"
-                placeholder="Ketik markdown di sini..."
-                value={markdownText}
-                onChange={(event) => setMarkdownText(event.target.value)}
-              />
-            </div>
+        <div className="md-split">
+          <article className={`md-pane ${mobileTab === 'editor' ? 'active' : ''}`}>
+            <h3>Markdown Input</h3>
+            <Editor
+              className="md-editor-monaco"
+              defaultLanguage="markdown"
+              language="markdown"
+              value={markdownText}
+              onChange={(value) => setMarkdownText(value ?? '')}
+              theme="vs-dark"
+              height="100%"
+              options={{
+                fontSize: 14,
+                minimap: { enabled: false },
+                lineNumbers: 'on',
+                renderLineHighlight: 'all',
+                roundedSelection: false,
+                scrollBeyondLastLine: false,
+                wordWrap: 'on',
+                tabSize: 2,
+                insertSpaces: true,
+                automaticLayout: true,
+                guides: {
+                  indentation: true,
+                  bracketPairs: true,
+                },
+                bracketPairColorization: {
+                  enabled: true,
+                },
+              }}
+              loading={
+                <textarea
+                  className="md-editor"
+                  placeholder="Ketik markdown di sini..."
+                  value={markdownText}
+                  onChange={(event) => setMarkdownText(event.target.value)}
+                />
+              }
+            />
           </article>
-        ) : (
-          <article className="md-panel">
-            <div className="md-panel-body">
+
+          <article className={`md-pane ${mobileTab === 'preview' ? 'active' : ''}`}>
+            <h3>Live Preview</h3>
+            <div className="md-preview-wrap">
               <div className="md-preview">{markdownText.trim() ? markdownBlocksToReact(blocks) : <p>Belum ada markdown.</p>}</div>
             </div>
           </article>
-        )}
+        </div>
       </section>
 
       <div className="md-export-root" aria-hidden="true">

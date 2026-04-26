@@ -44,7 +44,7 @@ body {
 }
 
 .tools-nav {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
   margin: 0 auto;
   display: block;
   padding: 12px 0;
@@ -89,7 +89,7 @@ body {
 }
 
 .page {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
   margin: 32px auto 44px;
   display: grid;
   gap: 18px;
@@ -647,7 +647,7 @@ textarea:focus {
 }
 
 .app-footer-inner {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -732,7 +732,7 @@ textarea:focus {
 }
 
 .md-page {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
 }
 
 .md-toolbar-card {
@@ -760,6 +760,44 @@ textarea:focus {
 
 .md-tab-card {
   padding: 12px;
+}
+
+.md-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.md-pane {
+  border: 1px solid #d8e1ef;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  min-height: 560px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.md-pane h3 {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #e4ebf6;
+  color: #4f6388;
+}
+
+.md-editor-monaco {
+  min-height: 520px;
+}
+
+.md-preview-wrap {
+  background: #f1f6ff;
+  padding: 10px;
+  min-height: 0;
+}
+
+.md-tabs.md-mobile-tabs {
+  display: none;
 }
 
 .md-tabs {
@@ -1026,7 +1064,7 @@ textarea:focus {
 }
 
 .m4a-page {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
 }
 
 .m4a-card {
@@ -1220,10 +1258,74 @@ textarea:focus {
   background: #fff;
 }
 
+.text-diff-page {
+  width: min(1300px, 94vw);
+}
+
+.text-diff-card {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.text-diff-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.text-diff-tabs-mobile {
+  display: none;
+}
+
+.text-diff-body {
+  display: grid;
+}
+
+.text-diff-pane {
+  border: 1px solid #d8e1ef;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  min-height: 600px;
+  display: none;
+  grid-template-rows: auto 1fr;
+}
+
+.text-diff-diff-pane {
+  display: grid;
+}
+
+.text-diff-pane h2 {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #e4ebf6;
+  color: #4f6388;
+}
+
+.text-diff-monaco {
+  min-height: 540px;
+}
+
+.text-diff-textarea {
+  border: none;
+  border-radius: 0;
+  padding: 14px;
+  font-family: 'JetBrains Mono', 'Consolas', 'Segoe UI Emoji', 'Apple Color Emoji', monospace;
+  line-height: 1.5;
+  resize: none;
+  min-height: 540px;
+}
+
+.text-diff-textarea:focus {
+  box-shadow: none;
+}
+
 /* ── PDF Merge Tool ─────────────────────────────────── */
 
 .pdf-merge-page {
-  width: min(700px, 94vw);
+  width: min(1300px, 94vw);
 }
 
 .pdf-merge-card {
@@ -1470,6 +1572,28 @@ textarea:focus {
     height: 420px;
   }
 
+  .md-split {
+    grid-template-columns: 1fr;
+  }
+
+  .md-tabs.md-mobile-tabs {
+    display: grid;
+    margin-bottom: 10px;
+  }
+
+  .md-pane {
+    min-height: 420px;
+    display: none;
+  }
+
+  .md-pane.active {
+    display: grid;
+  }
+
+  .md-editor-monaco {
+    min-height: 340px;
+  }
+
   .md-toolbar-card {
     padding: 14px;
   }
@@ -1513,6 +1637,33 @@ textarea:focus {
     min-height: 340px;
   }
 
+  .text-diff-card {
+    padding: 10px;
+  }
+
+  .text-diff-tabs-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .text-diff-pane {
+    min-height: 420px;
+    display: none;
+  }
+
+  .text-diff-pane.active {
+    display: grid;
+  }
+
+  .text-diff-diff-pane {
+    display: none;
+  }
+
+  .text-diff-monaco,
+  .text-diff-textarea {
+    min-height: 340px;
+  }
+
   .app-footer-inner {
     flex-direction: column;
     text-align: center;
@@ -1537,6 +1688,14 @@ textarea:focus {
 .pdf-sign-step {
   padding: 22px 26px;
   border-bottom: 1px solid #e8eef8;
+  display: grid;
+  gap: 14px;
+}
+
+.pdf-sign-limited {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   display: grid;
   gap: 14px;
 }

@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { Code2, Download, Eye, RefreshCcw } from 'lucide-react'
+import { useMemo, useRef, useState } from 'react'
+import { Code2, Download, Eye, RefreshCcw, Upload } from 'lucide-react'
 import Editor from '@monaco-editor/react'
 import '../App.css'
 
@@ -41,11 +41,14 @@ const DEFAULT_HTML = `<!doctype html>
 
 function HtmlEditorTool() {
   const [htmlCode, setHtmlCode] = useState(DEFAULT_HTML)
+  const [fileName, setFileName] = useState('html-editor')
   const [activeTab, setActiveTab] = useState('editor')
+  const fileInputRef = useRef(null)
   const previewDoc = useMemo(() => htmlCode, [htmlCode])
 
   const resetDefault = () => {
     setHtmlCode(DEFAULT_HTML)
+    setFileName('html-editor')
   }
 
   const saveAsHtml = () => {
@@ -53,11 +56,30 @@ function HtmlEditorTool() {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'html-editor.html'
+    link.download = `${fileName || 'html-editor'}.html`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
     URL.revokeObjectURL(url)
+  }
+
+  const openUploadPicker = () => {
+    fileInputRef.current?.click()
+  }
+
+  const onUploadHtml = async (event) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    try {
+      const content = await file.text()
+      setHtmlCode(content)
+      setFileName(file.name.replace(/\.(html?|txt)$/i, '') || 'html-editor')
+    } catch {
+      alert('Gagal membaca file HTML.')
+    } finally {
+      event.target.value = ''
+    }
   }
 
   return (
@@ -81,6 +103,16 @@ function HtmlEditorTool() {
 
       <section className="card html-editor-card">
         <div className="html-editor-actions">
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".html,.htm,.txt,text/html,text/plain"
+            onChange={onUploadHtml}
+            hidden
+          />
+          <button type="button" className="outline icon-btn" onClick={openUploadPicker}>
+            <Upload className="icon-sm" /> Upload HTML
+          </button>
           <button type="button" className="outline icon-btn" onClick={saveAsHtml}>
             <Download className="icon-sm" /> Save as HTML
           </button>

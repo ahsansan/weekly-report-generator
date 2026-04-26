@@ -5,4 +5,5 @@ export const TOOL_ROUTES = [
   { path: '/pdf-sign', label: 'PDF Signature' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3' },
   { path: '/html-editor', label: 'HTML Editor' },
+  { path: '/text-diff', label: 'Text Diff Checker' },
 ]

@@ -6,6 +6,7 @@ import M4aToMp3Tool from './pages/M4aToMp3Tool'
 import PdfMergeTool from './pages/PdfMergeTool'
 import PdfSignatureTool from './pages/PdfSignatureTool'
 import HtmlEditorTool from './pages/HtmlEditorTool'
+import TextDiffTool from './pages/TextDiffTool'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { TOOL_ROUTES } from './lib/toolRoutes'
@@ -16,12 +17,13 @@ const getInitialPath = () => {
 }
 
 const PAGE_TITLES = {
-  '/': 'Weekly Report Generator',
-  '/md-to-pdf': 'Convert Markdown to PDF',
-  '/m4a-to-mp3': 'Convert M4A to MP3',
-  '/pdf-merge': 'PDF Merger',
-  '/pdf-sign': 'PDF Signature',
-  '/html-editor': 'HTML Editor',
+  '/': 'Weekly Report Generator - Kejepangan Tools',
+  '/md-to-pdf': 'Convert Markdown to PDF - Kejepangan Tools',
+  '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
+  '/pdf-merge': 'PDF Merger - Kejepangan Tools',
+  '/pdf-sign': 'PDF Signature - Kejepangan Tools',
+  '/html-editor': 'HTML Editor - Kejepangan Tools',
+  '/text-diff': 'Text Diff Checker - Kejepangan Tools',
 }
 
 function App() {
@@ -58,6 +60,8 @@ function App() {
           <PdfSignatureTool />
         ) : pathname === '/html-editor' ? (
           <HtmlEditorTool />
+        ) : pathname === '/text-diff' ? (
+          <TextDiffTool />
         ) : (
           <WeeklyReportTool />
         )}
