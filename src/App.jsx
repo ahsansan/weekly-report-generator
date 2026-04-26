@@ -5,6 +5,7 @@ import MarkdownToPdfTool from './pages/MarkdownToPdfTool'
 import M4aToMp3Tool from './pages/M4aToMp3Tool'
 import PdfMergeTool from './pages/PdfMergeTool'
 import PdfSignatureTool from './pages/PdfSignatureTool'
+import HtmlEditorTool from './pages/HtmlEditorTool'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { TOOL_ROUTES } from './lib/toolRoutes'
@@ -14,21 +15,20 @@ const getInitialPath = () => {
   return TOOL_ROUTES.some((route) => route.path === currentPath) ? currentPath : '/'
 }
 
+const PAGE_TITLES = {
+  '/': 'Weekly Report Generator',
+  '/md-to-pdf': 'Convert Markdown to PDF',
+  '/m4a-to-mp3': 'Convert M4A to MP3',
+  '/pdf-merge': 'PDF Merger',
+  '/pdf-sign': 'PDF Signature',
+  '/html-editor': 'HTML Editor',
+}
+
 function App() {
   const [pathname, setPathname] = useState(getInitialPath)
 
   useEffect(() => {
-    const pageTitle =
-      pathname === '/md-to-pdf'
-        ? 'Convert Markdown to PDF'
-        : pathname === '/m4a-to-mp3'
-          ? 'Convert M4A to MP3'
-          : pathname === '/pdf-merge'
-            ? 'PDF Merger'
-            : pathname === '/pdf-sign'
-              ? 'PDF Signature'
-              : 'Weekly Report Generator'
-    document.title = pageTitle
+    document.title = PAGE_TITLES[pathname] || 'Weekly Report Generator'
   }, [pathname])
 
   useEffect(() => {
@@ -56,6 +56,8 @@ function App() {
           <PdfMergeTool />
         ) : pathname === '/pdf-sign' ? (
           <PdfSignatureTool />
+        ) : pathname === '/html-editor' ? (
+          <HtmlEditorTool />
         ) : (
           <WeeklyReportTool />
         )}

@@ -1141,6 +1141,85 @@ textarea:focus {
   gap: 10px;
 }
 
+.html-editor-page {
+  width: min(1300px, 94vw);
+}
+
+.html-editor-card {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.html-editor-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.html-editor-tabs-mobile {
+  display: none;
+}
+
+.html-editor-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.html-editor-pane {
+  border: 1px solid #d8e1ef;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  min-height: 580px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.html-editor-pane h2 {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid #e4ebf6;
+  color: #4f6388;
+}
+
+.html-editor-textarea {
+  border: none;
+  border-radius: 0;
+  padding: 14px;
+  font-family: 'JetBrains Mono', 'Consolas', 'Segoe UI Emoji', 'Apple Color Emoji', monospace;
+  line-height: 1.5;
+  resize: none;
+  height: 100%;
+  min-height: 520px;
+}
+
+.html-editor-textarea:focus {
+  box-shadow: none;
+}
+
+.html-editor-monaco {
+  min-height: 520px;
+}
+
+.html-editor-preview-wrap {
+  background: #f1f6ff;
+  padding: 10px;
+  min-height: 0;
+}
+
+.html-editor-preview {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: 1px solid #d8e1ef;
+  border-radius: 10px;
+  background: #fff;
+}
+
 /* ── PDF Merge Tool ─────────────────────────────────── */
 
 .pdf-merge-page {
@@ -1405,6 +1484,33 @@ textarea:focus {
 
   .m4a-card {
     padding: 14px;
+  }
+
+  .html-editor-card {
+    padding: 10px;
+  }
+
+  .html-editor-tabs-mobile {
+    display: grid;
+  }
+
+  .html-editor-split {
+    grid-template-columns: 1fr;
+  }
+
+  .html-editor-pane {
+    min-height: 420px;
+    display: none;
+  }
+
+  .html-editor-pane.active {
+    display: grid;
+  }
+
+  .html-editor-textarea,
+  .html-editor-monaco,
+  .html-editor-preview {
+    min-height: 340px;
   }
 
   .app-footer-inner {
