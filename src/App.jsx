@@ -9,6 +9,7 @@ import PdfSignatureTool from './pages/PdfSignatureTool'
 import HtmlEditorTool from './pages/HtmlEditorTool'
 import TextDiffTool from './pages/TextDiffTool'
 import CsvToXlsxTool from './pages/CsvToXlsxTool'
+import CsvToJsonTool from './pages/CsvToJsonTool'
 import XlsxToCsvTool from './pages/XlsxToCsvTool'
 import JsonFormatterTool from './pages/JsonFormatterTool'
 import CaseConverterTool from './pages/CaseConverterTool'
@@ -31,6 +32,7 @@ const PAGE_TITLES = {
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
   '/csv-to-xlsx': 'CSV to XLSX - Kejepangan Tools',
+  '/csv-to-json': 'CSV to JSON - Kejepangan Tools',
   '/xlsx-to-csv': 'XLSX to CSV - Kejepangan Tools',
   '/json-formatter': 'JSON Formatter & Validator - Kejepangan Tools',
   '/case-converter': 'Case Converter - Kejepangan Tools',
@@ -76,6 +78,8 @@ function App() {
           <TextDiffTool />
         ) : pathname === '/csv-to-xlsx' ? (
           <CsvToXlsxTool />
+        ) : pathname === '/csv-to-json' ? (
+          <CsvToJsonTool />
         ) : pathname === '/xlsx-to-csv' ? (
           <XlsxToCsvTool />
         ) : pathname === '/json-formatter' ? (

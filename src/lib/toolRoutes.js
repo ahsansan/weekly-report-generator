@@ -10,5 +10,6 @@ export const TOOL_ROUTES = [
   { path: '/json-formatter', label: 'JSON Formatter & Validator', group: 'Text & HTML' },
   { path: '/case-converter', label: 'Case Converter', group: 'Text & HTML' },
   { path: '/csv-to-xlsx', label: 'CSV to XLSX', group: 'Spreadsheet' },
+  { path: '/csv-to-json', label: 'CSV to JSON', group: 'Spreadsheet' },
   { path: '/xlsx-to-csv', label: 'XLSX to CSV', group: 'Spreadsheet' },
 ]
