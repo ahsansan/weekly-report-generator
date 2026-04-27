@@ -2634,6 +2634,130 @@ textarea:focus {
   text-decoration: none;
 }
 
+/* Case Converter */
+
+.case-converter-page {
+  width: min(1300px, 94vw);
+}
+
+.case-converter-card {
+  padding: 20px;
+}
+
+.case-converter-editor {
+  position: relative;
+  border: 1px solid #d5deea;
+  border-radius: 14px;
+  background: #fff;
+  min-height: 300px;
+  padding: 14px;
+}
+
+.case-converter-textarea {
+  width: 100%;
+  min-height: 255px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  resize: vertical;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #22304a;
+}
+
+.case-converter-textarea:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.case-converter-small-actions {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.case-converter-mini-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d4deef;
+  border-radius: 10px;
+  background: #fff;
+  color: #3f5378;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-converter-mini-btn:hover:not(:disabled) {
+  background: #f3f8ff;
+}
+
+.case-converter-mini-btn-primary {
+  background: #57b5e0;
+  border-color: #57b5e0;
+  color: #fff;
+}
+
+.case-converter-mini-btn-primary:hover:not(:disabled) {
+  background: #3ea7d8;
+}
+
+.case-converter-counts {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.case-converter-counts p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4f6388;
+}
+
+.case-converter-actions {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.case-converter-btn {
+  border: 1px solid #d4deef;
+  border-radius: 12px;
+  background: #fff;
+  color: #3f5378;
+  padding: 10px 12px;
+  min-height: 44px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.case-converter-btn:hover {
+  background: #f3f8ff;
+}
+
+.case-converter-btn.active {
+  border-color: #57b5e0;
+  background: #57b5e0;
+  color: #fff;
+}
+
+.case-converter-mini-btn:disabled,
+.case-converter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (max-width: 840px) {
   .pdf-split-card {
     padding: 14px;
@@ -2646,5 +2770,41 @@ textarea:focus {
 
   .pdf-split-actions {
     grid-template-columns: 1fr;
+  }
+
+  .case-converter-card {
+    padding: 14px;
+  }
+
+  .case-converter-editor {
+    min-height: 260px;
+    padding: 14px;
+  }
+
+  .case-converter-textarea {
+    min-height: 220px;
+    font-size: 0.95rem;
+  }
+
+  .case-converter-small-actions {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .case-converter-counts {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .case-converter-counts p {
+    font-size: 0.9rem;
+  }
+
+  .case-converter-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-converter-btn {
+    font-size: 0.88rem;
   }
 }

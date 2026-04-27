@@ -11,6 +11,7 @@ import TextDiffTool from './pages/TextDiffTool'
 import CsvToXlsxTool from './pages/CsvToXlsxTool'
 import XlsxToCsvTool from './pages/XlsxToCsvTool'
 import JsonFormatterTool from './pages/JsonFormatterTool'
+import CaseConverterTool from './pages/CaseConverterTool'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { TOOL_ROUTES } from './lib/toolRoutes'
@@ -32,6 +33,7 @@ const PAGE_TITLES = {
   '/csv-to-xlsx': 'CSV to XLSX - Kejepangan Tools',
   '/xlsx-to-csv': 'XLSX to CSV - Kejepangan Tools',
   '/json-formatter': 'JSON Formatter & Validator - Kejepangan Tools',
+  '/case-converter': 'Case Converter - Kejepangan Tools',
 }
 
 function App() {
@@ -78,6 +80,8 @@ function App() {
           <XlsxToCsvTool />
         ) : pathname === '/json-formatter' ? (
           <JsonFormatterTool />
+        ) : pathname === '/case-converter' ? (
+          <CaseConverterTool />
         ) : (
           <WeeklyReportTool />
         )}
