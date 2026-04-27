@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Copy, Download, Eraser, RotateCcw } from 'lucide-react'
+import { Copy, Download, Eraser, RotateCcw, Type } from 'lucide-react'
 import '../App.css'
 
 const getWordCount = (text = '') => {
@@ -132,6 +132,23 @@ function CaseConverterTool() {
 
   return (
     <main className="page case-converter-page">
+      <section className="hero" style={{ '--theme-color': '#57B5E0' }}>
+        <div className="hero-left">
+          <div className="hero-icon" aria-hidden="true">
+            <Type className="icon-md" />
+          </div>
+          <div>
+            <h1>Case Converter</h1>
+            <p>Ubah format huruf teks ke berbagai mode dengan sekali klik.</p>
+          </div>
+        </div>
+        <div className="shortcut-box">
+          <span>STATUS</span>
+          <code>{activeMode ? `Mode: ${activeMode}` : 'Mode: belum dipilih'}</code>
+          <code>{charCount} chars • {wordCount} words</code>
+        </div>
+      </section>
+
       <section className="card case-converter-card">
         <div className="case-converter-editor">
           <textarea
