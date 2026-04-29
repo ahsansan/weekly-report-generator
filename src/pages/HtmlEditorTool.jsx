@@ -100,6 +100,24 @@ const waitForImages = async (docNode) => {
   )
 }
 
+const waitForStylesheets = async (docNode) => {
+  const links = Array.from(docNode.querySelectorAll('link[rel="stylesheet"]'))
+  await Promise.all(
+    links.map(
+      (link) =>
+        new Promise((resolve) => {
+          if (link.sheet) {
+            resolve()
+            return
+          }
+          link.addEventListener('load', resolve, { once: true })
+          link.addEventListener('error', resolve, { once: true })
+          window.setTimeout(resolve, 4000)
+        }),
+    ),
+  )
+}
+
 function HtmlEditorTool() {
   const [htmlCode, setHtmlCode] = useState(DEFAULT_HTML)
   const [fileName, setFileName] = useState('html-editor')
@@ -135,7 +153,7 @@ function HtmlEditorTool() {
 
       renderFrame = document.createElement('iframe')
       renderFrame.className = 'html-export-render-frame'
-      renderFrame.sandbox = 'allow-same-origin'
+      renderFrame.sandbox = 'allow-same-origin allow-scripts'
       renderFrame.style.position = 'fixed'
       renderFrame.style.left = '-13000px'
       renderFrame.style.top = '0'
@@ -152,7 +170,9 @@ function HtmlEditorTool() {
       if (!frameDoc?.body) throw new Error('Dokumen HTML tidak valid.')
 
       if (frameDoc.fonts?.ready) await frameDoc.fonts.ready
+      await waitForStylesheets(frameDoc)
       await waitForImages(frameDoc)
+      await new Promise((resolve) => window.setTimeout(resolve, 300))
 
       const renderHeight = Math.max(
         frameDoc.body.scrollHeight,

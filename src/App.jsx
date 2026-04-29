@@ -1,23 +1,24 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import WeeklyReportTool from './pages/WeeklyReportTool'
-import MarkdownToPdfTool from './pages/MarkdownToPdfTool'
-import M4aToMp3Tool from './pages/M4aToMp3Tool'
-import PdfMergeTool from './pages/PdfMergeTool'
-import PdfSplitExtractTool from './pages/PdfSplitExtractTool'
-import PdfSignatureTool from './pages/PdfSignatureTool'
-import PdfResizeA4Tool from './pages/PdfResizeA4Tool'
-import EbookMockupTool from './pages/EbookMockupTool'
-import HtmlEditorTool from './pages/HtmlEditorTool'
-import TextDiffTool from './pages/TextDiffTool'
-import CsvToXlsxTool from './pages/CsvToXlsxTool'
-import CsvToJsonTool from './pages/CsvToJsonTool'
-import XlsxToCsvTool from './pages/XlsxToCsvTool'
-import JsonFormatterTool from './pages/JsonFormatterTool'
-import CaseConverterTool from './pages/CaseConverterTool'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { TOOL_ROUTES } from './lib/toolRoutes'
+import { useEffect, useState } from 'react';
+import './App.css';
+import WeeklyReportTool from './pages/WeeklyReportTool';
+import MarkdownToPdfTool from './pages/MarkdownToPdfTool';
+import M4aToMp3Tool from './pages/M4aToMp3Tool';
+import PdfMergeTool from './pages/PdfMergeTool';
+import PdfSplitExtractTool from './pages/PdfSplitExtractTool';
+import PdfSignatureTool from './pages/PdfSignatureTool';
+import PdfTextEditorTool from './pages/PdfTextEditorTool';
+import PdfResizeA4Tool from './pages/PdfResizeA4Tool';
+import EbookMockupTool from './pages/EbookMockupTool';
+import HtmlEditorTool from './pages/HtmlEditorTool';
+import TextDiffTool from './pages/TextDiffTool';
+import CsvToXlsxTool from './pages/CsvToXlsxTool';
+import CsvToJsonTool from './pages/CsvToJsonTool';
+import XlsxToCsvTool from './pages/XlsxToCsvTool';
+import JsonFormatterTool from './pages/JsonFormatterTool';
+import CaseConverterTool from './pages/CaseConverterTool';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { TOOL_ROUTES } from './lib/toolRoutes';
 
 const getInitialPath = () => {
   const currentPath = window.location.pathname || '/'
@@ -30,6 +31,7 @@ const PAGE_TITLES = {
   '/pdf-merge': 'PDF Merger - Kejepangan Tools',
   '/pdf-split-extract': 'PDF Split & Extract - Kejepangan Tools',
   '/pdf-sign': 'PDF Signature - Kejepangan Tools',
+  '/pdf-text-editor': 'PDF Text Editor - Kejepangan Tools',
   '/pdf-resize': 'PDF Resize - Kejepangan Tools',
   '/ebook-mockup': 'Ebook Mockup Creator - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
@@ -76,6 +78,8 @@ function App() {
           <PdfSplitExtractTool />
         ) : pathname === '/pdf-sign' ? (
           <PdfSignatureTool />
+        ) : pathname === '/pdf-text-editor' ? (
+          <PdfTextEditorTool />
         ) : pathname === '/pdf-resize' ? (
           <PdfResizeA4Tool />
         ) : pathname === '/ebook-mockup' ? (
