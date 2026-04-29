@@ -6,6 +6,8 @@ import M4aToMp3Tool from './pages/M4aToMp3Tool'
 import PdfMergeTool from './pages/PdfMergeTool'
 import PdfSplitExtractTool from './pages/PdfSplitExtractTool'
 import PdfSignatureTool from './pages/PdfSignatureTool'
+import PdfResizeA4Tool from './pages/PdfResizeA4Tool'
+import EbookMockupTool from './pages/EbookMockupTool'
 import HtmlEditorTool from './pages/HtmlEditorTool'
 import TextDiffTool from './pages/TextDiffTool'
 import CsvToXlsxTool from './pages/CsvToXlsxTool'
@@ -28,6 +30,8 @@ const PAGE_TITLES = {
   '/pdf-merge': 'PDF Merger - Kejepangan Tools',
   '/pdf-split-extract': 'PDF Split & Extract - Kejepangan Tools',
   '/pdf-sign': 'PDF Signature - Kejepangan Tools',
+  '/pdf-resize': 'PDF Resize - Kejepangan Tools',
+  '/ebook-mockup': 'Ebook Mockup Creator - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
@@ -72,6 +76,10 @@ function App() {
           <PdfSplitExtractTool />
         ) : pathname === '/pdf-sign' ? (
           <PdfSignatureTool />
+        ) : pathname === '/pdf-resize' ? (
+          <PdfResizeA4Tool />
+        ) : pathname === '/ebook-mockup' ? (
+          <EbookMockupTool />
         ) : pathname === '/html-editor' ? (
           <HtmlEditorTool />
         ) : pathname === '/text-diff' ? (

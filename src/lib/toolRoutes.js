@@ -4,6 +4,8 @@ export const TOOL_ROUTES = [
   { path: '/pdf-merge', label: 'PDF Merger', group: 'PDF' },
   { path: '/pdf-split-extract', label: 'PDF Split & Extract', group: 'PDF' },
   { path: '/pdf-sign', label: 'PDF Signature', group: 'PDF' },
+  { path: '/pdf-resize', label: 'PDF Resize', group: 'PDF' },
+  { path: '/ebook-mockup', label: 'Ebook Mockup Creator', group: 'Design' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3', group: 'Audio' },
   { path: '/html-editor', label: 'HTML Editor', group: 'Text & HTML' },
   { path: '/text-diff', label: 'Text Diff Checker', group: 'Text & HTML' },
