@@ -10,6 +10,8 @@ import PdfTextEditorTool from './pages/PdfTextEditorTool';
 import PdfResizeA4Tool from './pages/PdfResizeA4Tool';
 import PdfCompressTool from './pages/PdfCompressTool';
 import EbookMockupTool from './pages/EbookMockupTool';
+import ImageToWebpTool from './pages/ImageToWebpTool';
+import ImageResizerTool from './pages/ImageResizerTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
 import CsvToXlsxTool from './pages/CsvToXlsxTool';
@@ -36,6 +38,8 @@ const PAGE_TITLES = {
   '/pdf-resize': 'PDF Resize - Kejepangan Tools',
   '/pdf-compress': 'PDF Compress - Kejepangan Tools',
   '/ebook-mockup': 'Ebook Mockup Creator - Kejepangan Tools',
+  '/image-to-webp': 'PNG/JPG to WEBP - Kejepangan Tools',
+  '/image-resizer': 'Image Resizer - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
@@ -88,6 +92,10 @@ function App() {
           <PdfCompressTool />
         ) : pathname === '/ebook-mockup' ? (
           <EbookMockupTool />
+        ) : pathname === '/image-to-webp' ? (
+          <ImageToWebpTool />
+        ) : pathname === '/image-resizer' ? (
+          <ImageResizerTool />
         ) : pathname === '/html-editor' ? (
           <HtmlEditorTool />
         ) : pathname === '/text-diff' ? (

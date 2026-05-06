@@ -8,6 +8,8 @@ export const TOOL_ROUTES = [
   { path: '/pdf-resize', label: 'PDF Resize', group: 'PDF' },
   { path: '/pdf-compress', label: 'PDF Compress (HQ)', group: 'PDF' },
   { path: '/ebook-mockup', label: 'Ebook Mockup Creator', group: 'Design' },
+  { path: '/image-to-webp', label: 'PNG/JPG to WEBP', group: 'Design' },
+  { path: '/image-resizer', label: 'Image Resizer', group: 'Design' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3', group: 'Audio' },
   { path: '/html-editor', label: 'HTML Editor', group: 'Text & HTML' },
   { path: '/text-diff', label: 'Text Diff Checker', group: 'Text & HTML' },
