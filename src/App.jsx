@@ -8,6 +8,7 @@ import PdfSplitExtractTool from './pages/PdfSplitExtractTool';
 import PdfSignatureTool from './pages/PdfSignatureTool';
 import PdfTextEditorTool from './pages/PdfTextEditorTool';
 import PdfResizeA4Tool from './pages/PdfResizeA4Tool';
+import PdfCompressTool from './pages/PdfCompressTool';
 import EbookMockupTool from './pages/EbookMockupTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
@@ -33,6 +34,7 @@ const PAGE_TITLES = {
   '/pdf-sign': 'PDF Signature - Kejepangan Tools',
   '/pdf-text-editor': 'PDF Text Editor - Kejepangan Tools',
   '/pdf-resize': 'PDF Resize - Kejepangan Tools',
+  '/pdf-compress': 'PDF Compress - Kejepangan Tools',
   '/ebook-mockup': 'Ebook Mockup Creator - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
@@ -82,6 +84,8 @@ function App() {
           <PdfTextEditorTool />
         ) : pathname === '/pdf-resize' ? (
           <PdfResizeA4Tool />
+        ) : pathname === '/pdf-compress' ? (
+          <PdfCompressTool />
         ) : pathname === '/ebook-mockup' ? (
           <EbookMockupTool />
         ) : pathname === '/html-editor' ? (
@@ -109,3 +113,4 @@ function App() {
 }
 
 export default App
+

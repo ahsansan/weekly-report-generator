@@ -3384,3 +3384,126 @@ textarea:focus {
 .pdf-resize-swatch.active {
   box-shadow: 0 0 0 2px #57b5e0;
 }
+
+/* PDF Compress */
+.pdf-compress-page {
+  width: min(1300px, 94vw);
+}
+
+.pdf-compress-card {
+  padding: 20px;
+}
+
+.pdf-compress-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.pdf-compress-upload-box {
+  margin: 0;
+}
+
+.pdf-compress-file-panel {
+  border: 1px solid #d7e2ee;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.pdf-compress-file-title {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5f7090;
+}
+
+.pdf-compress-file-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-compress-file-row strong {
+  color: #2a3d5e;
+  font-size: 0.92rem;
+}
+
+.pdf-compress-file-row p {
+  margin: 4px 0 0;
+  color: #8098b5;
+  font-size: 0.82rem;
+}
+
+.pdf-compress-empty {
+  margin: 0;
+  color: #8b99b3;
+  font-size: 0.88rem;
+}
+
+.pdf-compress-profile-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pdf-compress-profile-tab {
+  border: 1px solid #d8e3f3;
+  border-radius: 12px;
+  background: #fff;
+  color: #35527a;
+  text-align: left;
+  padding: 12px;
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+}
+
+.pdf-compress-profile-tab strong {
+  font-size: 0.9rem;
+}
+
+.pdf-compress-profile-tab span {
+  font-size: 0.82rem;
+  color: #6d81a4;
+}
+
+.pdf-compress-profile-tab.active {
+  border-color: #2f80ed;
+  background: #edf5ff;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.14);
+}
+
+.pdf-compress-actions {
+  display: flex;
+}
+
+.pdf-compress-result {
+  margin-top: 14px;
+  display: flex;
+}
+
+.pdf-compress-download-link {
+  text-decoration: none;
+}
+
+.pdf-compress-note {
+  margin: 10px 0 0;
+  color: #6d7f9d;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 840px) {
+  .pdf-compress-card {
+    padding: 14px;
+  }
+
+  .pdf-compress-file-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pdf-compress-profile-tabs {
+    grid-template-columns: 1fr;
+  }
+}

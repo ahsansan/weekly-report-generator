@@ -6,6 +6,7 @@ export const TOOL_ROUTES = [
   { path: '/pdf-sign', label: 'PDF Signature', group: 'PDF' },
   { path: '/pdf-text-editor', label: 'PDF Text Editor', group: 'PDF' },
   { path: '/pdf-resize', label: 'PDF Resize', group: 'PDF' },
+  { path: '/pdf-compress', label: 'PDF Compress (HQ)', group: 'PDF' },
   { path: '/ebook-mockup', label: 'Ebook Mockup Creator', group: 'Design' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3', group: 'Audio' },
   { path: '/html-editor', label: 'HTML Editor', group: 'Text & HTML' },
@@ -16,3 +17,4 @@ export const TOOL_ROUTES = [
   { path: '/csv-to-json', label: 'CSV to JSON', group: 'Spreadsheet' },
   { path: '/xlsx-to-csv', label: 'XLSX to CSV', group: 'Spreadsheet' },
 ]
+
