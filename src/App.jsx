@@ -9,8 +9,10 @@ import PdfSignatureTool from './pages/PdfSignatureTool';
 import PdfTextEditorTool from './pages/PdfTextEditorTool';
 import PdfResizeA4Tool from './pages/PdfResizeA4Tool';
 import PdfCompressTool from './pages/PdfCompressTool';
+import PdfToImageTool from './pages/PdfToImageTool';
 import EbookMockupTool from './pages/EbookMockupTool';
 import ImageToWebpTool from './pages/ImageToWebpTool';
+import ImageToPdfTool from './pages/ImageToPdfTool';
 import ImageResizerTool from './pages/ImageResizerTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
@@ -37,8 +39,10 @@ const PAGE_TITLES = {
   '/pdf-text-editor': 'PDF Text Editor - Kejepangan Tools',
   '/pdf-resize': 'PDF Resize - Kejepangan Tools',
   '/pdf-compress': 'PDF Compress - Kejepangan Tools',
+  '/pdf-to-image': 'PDF to Image - Kejepangan Tools',
   '/ebook-mockup': 'Ebook Mockup Creator - Kejepangan Tools',
   '/image-to-webp': 'PNG/JPG to WEBP - Kejepangan Tools',
+  '/image-to-pdf': 'Image to PDF - Kejepangan Tools',
   '/image-resizer': 'Image Resizer - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
@@ -90,10 +94,14 @@ function App() {
           <PdfResizeA4Tool />
         ) : pathname === '/pdf-compress' ? (
           <PdfCompressTool />
+        ) : pathname === '/pdf-to-image' ? (
+          <PdfToImageTool />
         ) : pathname === '/ebook-mockup' ? (
           <EbookMockupTool />
         ) : pathname === '/image-to-webp' ? (
           <ImageToWebpTool />
+        ) : pathname === '/image-to-pdf' ? (
+          <ImageToPdfTool />
         ) : pathname === '/image-resizer' ? (
           <ImageResizerTool />
         ) : pathname === '/html-editor' ? (
