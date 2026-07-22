@@ -12,6 +12,8 @@ export const TOOL_ROUTES = [
   { path: '/image-to-webp', label: 'PNG/JPG to WEBP', group: 'Design' },
   { path: '/image-to-pdf', label: 'Image to PDF', group: 'Design' },
   { path: '/image-resizer', label: 'Image Resizer', group: 'Design' },
+  { path: '/instagram-dm-generator', label: 'Instagram DM Generator', group: 'Social Media' },
+  { path: '/whatsapp-chat-generator', label: 'WhatsApp Chat Generator', group: 'Social Media' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3', group: 'Audio' },
   { path: '/html-editor', label: 'HTML Editor', group: 'Text & HTML' },
   { path: '/text-diff', label: 'Text Diff Checker', group: 'Text & HTML' },

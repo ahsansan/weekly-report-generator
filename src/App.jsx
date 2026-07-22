@@ -14,6 +14,8 @@ import EbookMockupTool from './pages/EbookMockupTool';
 import ImageToWebpTool from './pages/ImageToWebpTool';
 import ImageToPdfTool from './pages/ImageToPdfTool';
 import ImageResizerTool from './pages/ImageResizerTool';
+import InstagramDmGeneratorTool from './pages/InstagramDmGeneratorTool';
+import WhatsappChatGeneratorTool from './pages/WhatsappChatGeneratorTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
 import CsvToXlsxTool from './pages/CsvToXlsxTool';
@@ -23,6 +25,7 @@ import JsonFormatterTool from './pages/JsonFormatterTool';
 import CaseConverterTool from './pages/CaseConverterTool';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ToastProvider from './components/ToastProvider';
 import { TOOL_ROUTES } from './lib/toolRoutes';
 
 const getInitialPath = () => {
@@ -44,6 +47,8 @@ const PAGE_TITLES = {
   '/image-to-webp': 'PNG/JPG to WEBP - Kejepangan Tools',
   '/image-to-pdf': 'Image to PDF - Kejepangan Tools',
   '/image-resizer': 'Image Resizer - Kejepangan Tools',
+  '/instagram-dm-generator': 'Instagram DM Generator - Kejepangan Tools',
+  '/whatsapp-chat-generator': 'WhatsApp Chat Generator - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
@@ -104,6 +109,10 @@ function App() {
           <ImageToPdfTool />
         ) : pathname === '/image-resizer' ? (
           <ImageResizerTool />
+        ) : pathname === '/instagram-dm-generator' ? (
+          <InstagramDmGeneratorTool />
+        ) : pathname === '/whatsapp-chat-generator' ? (
+          <WhatsappChatGeneratorTool />
         ) : pathname === '/html-editor' ? (
           <HtmlEditorTool />
         ) : pathname === '/text-diff' ? (
@@ -124,6 +133,7 @@ function App() {
       </div>
 
       <Footer />
+      <ToastProvider />
     </div>
   )
 }
