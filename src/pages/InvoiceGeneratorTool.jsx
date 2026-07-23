@@ -43,10 +43,10 @@ const makeDefaultForm = () => {
     invoiceDate,
     dueDate: addDaysToInputDate(invoiceDate, 1),
     sellerName: 'BONG AFFAND',
-    sellerInfo: 'Professional Invoice Generator',
+    sellerInfo: 'Professional Whitelist Account Service',
     partnerTelephone: '6285212261642',
     partnerEmail: '',
-    buyerName: 'Customer',
+    buyerName: 'Kejepangan',
     notes: 'Pembayaran mohon dilakukan sesuai total invoice termasuk kode unik.',
   }
 }
@@ -101,6 +101,7 @@ const parseInvoiceText = (rawText = '') => {
   const banks = []
   let title = 'Invoice'
   let total = 0
+  let uniqueCode = 0
 
   lines.forEach((line) => {
     const titleMatch = line.match(/^RINCIAN\s+(.+)$/i)
@@ -123,7 +124,13 @@ const parseInvoiceText = (rawText = '') => {
 
     const chargeMatch = line.match(/^(KODE UNIK|Biaya admin|Fee\s*\d+%?)\s*:\s*([\d.,]+)$/i)
     if (chargeMatch) {
-      charges.push({ name: chargeMatch[1].replace(/\s+/g, ' ').trim(), amount: parseAmount(chargeMatch[2]) })
+      const chargeName = chargeMatch[1].replace(/\s+/g, ' ').trim()
+      const chargeAmount = parseAmount(chargeMatch[2])
+      if (/^KODE UNIK$/i.test(chargeName)) {
+        uniqueCode += chargeAmount
+      } else {
+        charges.push({ name: chargeName, amount: chargeAmount })
+      }
       return
     }
 
@@ -134,6 +141,14 @@ const parseInvoiceText = (rawText = '') => {
   })
 
   const subtotal = items.reduce((sum, item) => sum + item.amount, 0)
+  if (uniqueCode > 0) {
+    const adminCharge = charges.find((charge) => /^Biaya admin$/i.test(charge.name))
+    if (adminCharge) {
+      adminCharge.amount += uniqueCode
+    } else {
+      charges.unshift({ name: 'Biaya admin', amount: uniqueCode })
+    }
+  }
   const chargeTotal = charges.reduce((sum, charge) => sum + charge.amount, 0)
 
   return {
