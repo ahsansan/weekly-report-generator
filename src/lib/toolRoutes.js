@@ -1,5 +1,6 @@
 export const TOOL_ROUTES = [
   { path: '/', label: 'Weekly Report Tool', group: 'General' },
+  { path: '/invoice-generator', label: 'Invoice Generator', group: 'General' },
   { path: '/md-to-pdf', label: 'Markdown to PDF', group: 'PDF' },
   { path: '/pdf-merge', label: 'PDF Merger', group: 'PDF' },
   { path: '/pdf-split-extract', label: 'PDF Split & Extract', group: 'PDF' },

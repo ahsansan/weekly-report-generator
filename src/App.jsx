@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import WeeklyReportTool from './pages/WeeklyReportTool';
+import InvoiceGeneratorTool from './pages/InvoiceGeneratorTool';
 import MarkdownToPdfTool from './pages/MarkdownToPdfTool';
 import M4aToMp3Tool from './pages/M4aToMp3Tool';
 import PdfMergeTool from './pages/PdfMergeTool';
@@ -35,6 +36,7 @@ const getInitialPath = () => {
 
 const PAGE_TITLES = {
   '/': 'Weekly Report Generator - Kejepangan Tools',
+  '/invoice-generator': 'Invoice Generator - Kejepangan Tools',
   '/md-to-pdf': 'Convert Markdown to PDF - Kejepangan Tools',
   '/pdf-merge': 'PDF Merger - Kejepangan Tools',
   '/pdf-split-extract': 'PDF Split & Extract - Kejepangan Tools',
@@ -83,7 +85,9 @@ function App() {
       <Header pathname={pathname} onNavigate={navigate} />
 
       <div className="app-content">
-        {pathname === '/md-to-pdf' ? (
+        {pathname === '/invoice-generator' ? (
+          <InvoiceGeneratorTool />
+        ) : pathname === '/md-to-pdf' ? (
           <MarkdownToPdfTool />
         ) : pathname === '/m4a-to-mp3' ? (
           <M4aToMp3Tool />
