@@ -89,6 +89,25 @@ const makeInvoiceNumber = () => {
   return `INV-${datePart}-001`
 }
 
+const isDefaultInvoiceNumber = (value = '') => /^INV-\d{8}-001$/i.test(value.trim())
+
+const makeInitialForm = (draft) => {
+  const defaultForm = makeDefaultForm()
+  const draftForm = draft?.form ?? {}
+  const invoiceNumber =
+    !draftForm.invoiceNumber || isDefaultInvoiceNumber(draftForm.invoiceNumber)
+      ? defaultForm.invoiceNumber
+      : draftForm.invoiceNumber
+
+  return {
+    ...defaultForm,
+    ...draftForm,
+    invoiceNumber,
+    invoiceDate: defaultForm.invoiceDate,
+    dueDate: defaultForm.dueDate,
+  }
+}
+
 const parseInvoiceText = (rawText = '') => {
   const lines = rawText
     .replace(/\r\n/g, '\n')
@@ -290,13 +309,8 @@ const loadDraft = () => {
 
 function InvoiceGeneratorTool() {
   const draft = loadDraft()
-  const defaultForm = makeDefaultForm()
   const [rawText, setRawText] = useState(draft?.rawText ?? DEFAULT_RAW_TEXT)
-  const [form, setForm] = useState({
-    ...defaultForm,
-    ...draft?.form,
-    dueDate: draft?.form?.dueDate || addDaysToInputDate(draft?.form?.invoiceDate ?? defaultForm.invoiceDate, 1),
-  })
+  const [form, setForm] = useState(() => makeInitialForm(draft))
   const [isExporting, setIsExporting] = useState(false)
   const invoice = useMemo(() => parseInvoiceText(rawText), [rawText])
   const exportRef = useRef(null)
