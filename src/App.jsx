@@ -17,6 +17,7 @@ import ImageToPdfTool from './pages/ImageToPdfTool';
 import ImageResizerTool from './pages/ImageResizerTool';
 import InstagramDmGeneratorTool from './pages/InstagramDmGeneratorTool';
 import WhatsappChatGeneratorTool from './pages/WhatsappChatGeneratorTool';
+import MarkdownViewerTool from './pages/MarkdownViewerTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
 import CsvToXlsxTool from './pages/CsvToXlsxTool';
@@ -52,6 +53,7 @@ const PAGE_TITLES = {
   '/instagram-dm-generator': 'Instagram DM Generator - Kejepangan Tools',
   '/whatsapp-chat-generator': 'WhatsApp Chat Generator - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
+  '/markdown-viewer': 'Markdown Viewer - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
   '/text-diff': 'Text Diff Checker - Kejepangan Tools',
   '/csv-to-xlsx': 'CSV to XLSX - Kejepangan Tools',
@@ -117,6 +119,8 @@ function App() {
           <InstagramDmGeneratorTool />
         ) : pathname === '/whatsapp-chat-generator' ? (
           <WhatsappChatGeneratorTool />
+        ) : pathname === '/markdown-viewer' ? (
+          <MarkdownViewerTool />
         ) : pathname === '/html-editor' ? (
           <HtmlEditorTool />
         ) : pathname === '/text-diff' ? (

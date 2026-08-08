@@ -16,6 +16,7 @@ export const TOOL_ROUTES = [
   { path: '/instagram-dm-generator', label: 'Instagram DM Generator', group: 'Social Media' },
   { path: '/whatsapp-chat-generator', label: 'WhatsApp Chat Generator', group: 'Social Media' },
   { path: '/m4a-to-mp3', label: 'M4A to MP3', group: 'Audio' },
+  { path: '/markdown-viewer', label: 'Markdown Viewer', group: 'Text & HTML' },
   { path: '/html-editor', label: 'HTML Editor', group: 'Text & HTML' },
   { path: '/text-diff', label: 'Text Diff Checker', group: 'Text & HTML' },
   { path: '/json-formatter', label: 'JSON Formatter & Validator', group: 'Text & HTML' },

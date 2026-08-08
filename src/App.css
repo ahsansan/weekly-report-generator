@@ -1156,6 +1156,85 @@ textarea:focus {
   font-family: 'JetBrains Mono', 'Consolas', 'Segoe UI Emoji', 'Apple Color Emoji', monospace;
 }
 
+.markdown-viewer-toolbar {
+  display: grid;
+  gap: 10px;
+}
+
+.markdown-viewer-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.markdown-viewer-stats span {
+  border: 1px solid #d8e5f5;
+  border-radius: 999px;
+  background: #fff;
+  color: #4f6388;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.markdown-viewer-status {
+  margin: 0;
+  color: #4f6388;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.markdown-viewer-preview a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.markdown-viewer-preview a:hover {
+  text-decoration: underline;
+}
+
+.markdown-viewer-preview p code,
+.markdown-viewer-preview li code,
+.markdown-viewer-preview td code {
+  border: 1px solid #c8d6f4;
+  border-radius: 6px;
+  background: #eef4ff;
+  color: #1f3f73;
+  padding: 1px 5px;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+.markdown-viewer-preview pre {
+  position: relative;
+}
+
+.markdown-viewer-preview pre code {
+  display: block;
+  overflow-x: auto;
+}
+
+.md-code-language {
+  display: inline-block;
+  margin: 0 0 8px;
+  border-radius: 999px;
+  background: #d8e6ff;
+  color: #254f91;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.md-inline-image-text {
+  border: 1px dashed #b8c8e2;
+  border-radius: 6px;
+  color: #526b94;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}
+
 .md-spacer {
   height: 8px;
 }
