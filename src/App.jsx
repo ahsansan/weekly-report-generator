@@ -16,7 +16,9 @@ import ImageToWebpTool from './pages/ImageToWebpTool';
 import ImageToPdfTool from './pages/ImageToPdfTool';
 import ImageResizerTool from './pages/ImageResizerTool';
 import InstagramDmGeneratorTool from './pages/InstagramDmGeneratorTool';
+import InstagramFeedDownloaderTool from './pages/InstagramFeedDownloaderTool';
 import WhatsappChatGeneratorTool from './pages/WhatsappChatGeneratorTool';
+import TwitterMediaDownloaderTool from './pages/TwitterMediaDownloaderTool';
 import MarkdownViewerTool from './pages/MarkdownViewerTool';
 import HtmlEditorTool from './pages/HtmlEditorTool';
 import TextDiffTool from './pages/TextDiffTool';
@@ -51,7 +53,9 @@ const PAGE_TITLES = {
   '/image-to-pdf': 'Image to PDF - Kejepangan Tools',
   '/image-resizer': 'Image Resizer - Kejepangan Tools',
   '/instagram-dm-generator': 'Instagram DM Generator - Kejepangan Tools',
+  '/instagram-feed-downloader': 'Instagram Feed Downloader - Kejepangan Tools',
   '/whatsapp-chat-generator': 'WhatsApp Chat Generator - Kejepangan Tools',
+  '/twitter-media-downloader': 'Twitter/X HD Downloader - Kejepangan Tools',
   '/m4a-to-mp3': 'Convert M4A to MP3 - Kejepangan Tools',
   '/markdown-viewer': 'Markdown Viewer - Kejepangan Tools',
   '/html-editor': 'HTML Editor - Kejepangan Tools',
@@ -117,8 +121,12 @@ function App() {
           <ImageResizerTool />
         ) : pathname === '/instagram-dm-generator' ? (
           <InstagramDmGeneratorTool />
+        ) : pathname === '/instagram-feed-downloader' ? (
+          <InstagramFeedDownloaderTool />
         ) : pathname === '/whatsapp-chat-generator' ? (
           <WhatsappChatGeneratorTool />
+        ) : pathname === '/twitter-media-downloader' ? (
+          <TwitterMediaDownloaderTool />
         ) : pathname === '/markdown-viewer' ? (
           <MarkdownViewerTool />
         ) : pathname === '/html-editor' ? (
