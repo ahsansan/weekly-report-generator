@@ -7,13 +7,14 @@ import '../App.css'
 const DRAFT_KEY = 'invoice-generator-draft'
 const PDF_EXPORT_WIDTH = 794
 
-const DEFAULT_RAW_TEXT = `RINCIAN TOP UP 
+const DEFAULT_RAW_TEXT = `RINCIAN PERPANJANG & TOP UP
 
 Akun = Nominal
 - BA Maulana Ahsan = 3.000.000
 KODE UNIK : 480
 Biaya admin : 4.000
 Fee 2% : 60.000
+SEWA AKUN = 100.000
 
 Total = 3.064.480
 
@@ -141,7 +142,7 @@ const parseInvoiceText = (rawText = '') => {
       return
     }
 
-    const chargeMatch = line.match(/^(KODE UNIK|Biaya admin|Fee\s*\d+%?)\s*:\s*([\d.,]+)$/i)
+    const chargeMatch = line.match(/^(KODE UNIK|Biaya admin|Fee\s*\d+%?|SEWA AKUN)\s*[:=]\s*([\d.,]+)$/i)
     if (chargeMatch) {
       const chargeName = chargeMatch[1].replace(/\s+/g, ' ').trim()
       const chargeAmount = parseAmount(chargeMatch[2])
@@ -153,9 +154,10 @@ const parseInvoiceText = (rawText = '') => {
       return
     }
 
-    const bankMatch = line.match(/^([A-Z][A-Z0-9 ]{1,20})\s*:\s*([0-9 ]{6,})$/i)
+    const bankMatch = line.match(/^(?:\p{Emoji_Presentation}\s*)?([A-Z][A-Z0-9 ]{1,20})\s*:\s*([0-9 ]{6,})\s*(\(NEW\))?$/iu)
     if (bankMatch) {
-      banks.push({ name: bankMatch[1].trim().toUpperCase(), number: bankMatch[2].replace(/\s+/g, '') })
+      const name = bankMatch[1].trim().toUpperCase() + (bankMatch[3] ? ' (NEW)' : '')
+      banks.push({ name, number: bankMatch[2].replace(/\s+/g, '') })
     }
   })
 
